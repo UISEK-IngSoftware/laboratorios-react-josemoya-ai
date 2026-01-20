@@ -29,6 +29,7 @@ export default function Header() {
                     {isLoggedIn && 
                         <>
                             <Button color="inherit" href="/add-pokemon">Agregar Pokémon</Button>
+                            <Button color="inherit" href="/add-trainer">Agregar Entrenador</Button>
                             <Button color="inherit" onClick={handleLogout}>Cerrar Sesión</Button>
                         </>
                     }

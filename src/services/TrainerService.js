@@ -11,7 +11,7 @@ axios.interceptors.request.use((config) => {
 });
 
 /**
- * Obtener la lista de pokemones
+ * Obtener la lista de entrenadores
  * @return
  */
 export async function fetchTrainers() {
@@ -26,3 +26,10 @@ export async function fetchTrainers() {
  * @param {*} trainerData 
  * @returns 
  */
+export async function addTrainer(trainerData) {
+    const response = await axios.post(
+        `${Api_BASE_URL}/trainers/`, 
+        trainerData
+    );
+    return response.data;
+}
