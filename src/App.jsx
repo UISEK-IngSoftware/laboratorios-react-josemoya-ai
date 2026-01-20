@@ -1,6 +1,7 @@
 import { Container } from '@mui/material'
 import Header from './components/Header'
 import PokemonList from './pages/PokemonList'
+import TrainerList from './pages/TrainerList'
 import PokemonForm from './pages/PokemonForm'
 import LoginPage from './pages/LoginPage'
 import './App.css'
@@ -15,6 +16,7 @@ function App() {
           <Header />
           <Routes>
             <Route path='/' element={<PokemonList />} />
+            <Route path='/trainers' element={<TrainerList />} />
             <Route path='/add-pokemon' element={<PokemonForm />} />
             <Route path='/login' element={<LoginPage />} />
           </Routes>

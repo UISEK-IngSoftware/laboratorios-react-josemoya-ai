@@ -1,22 +1,14 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material"
 
-export default function PokemonCard ({ pokemon }) {
-    const mediaUrl = import.meta.env.VITE_MEDIA_URL;
-    pokemon.image = `${mediaUrl}/${pokemon.picture}`;
+export default function TrainerCard ({ trainer }) {
     return (
         <Card>
-            <CardMedia 
-                component="img"
-                height={200}
-                image={pokemon.image}
-                alt= {pokemon.name}
-            />
             <CardContent>
                 <Typography variant="h5" component="div">
-                    {pokemon.name}
+                    {trainer.first_name} {trainer.last_name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    Tipo: {pokemon.type}
+                    Nivel: {trainer.level}
                 </Typography>
             </CardContent>
             <CardActions>
