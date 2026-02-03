@@ -2,9 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addTrainer } from "../services/TrainerService";
 import { Typography, Box, TextField, Button } from "@mui/material";
+import Spinner from "../components/Spinner";
 
 export default function TrainerForm() {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
     const [trainerData, setTrainerData] = useState({
         first_name: '',
         last_name: '',
@@ -19,6 +22,7 @@ export default function TrainerForm() {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
+        setLoading(true);
         try {
             const newTrainer = await addTrainer(trainerData);
             alert("Entrenador agregado exitosamente");
@@ -27,7 +31,13 @@ export default function TrainerForm() {
         } catch (error) {
             console.error("Error al agregar el entrenador:", error);
             alert("Error al agregar el entrenador");
+        } finally {
+            setLoading(false);
         }
+    }
+
+    if (loading) {
+        return <Spinner />;
     }
 
     return (
